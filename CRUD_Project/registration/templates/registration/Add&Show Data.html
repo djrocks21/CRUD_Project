@@ -11,9 +11,63 @@
  {% csrf_token %}
  {{form.as_p}}  
  <input type="submit" class="btn btn-success" value="Add">  
-</form>
-   </div>
-   </div>
+ </form>
+</div>
+
+
+<div class="col-sm-7 offset-1">
+<h4 class="text-center alert alert-danger">Show Candidates 
+    Information</h4>
+   {% if candidate %}
+   
+   <table class="table table-hover">
+    
+    <thread>
+
+<tr>
+
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Password</th>
+    <th scope="col">Action</th>
+     
+</tr>
+    </thread>
+    </tbody>
+
+     {% for cand in candidate%}
+
+    <tr>
+        <th scope="row">{{cand.id}}</th>
+        <td> {{cand.name}} </td>
+        <td> {{cand.email}} </td>
+        <td> {{cand.password}} </td>
+    <td>
+    <a href="{% url updatedata % cand.id}" class="btn btn-danger btn-sm">Edit</a>
+    
+    <form action="{% url 'deletedata' cand.id %}" method="post" class="d-inline">  {% csrf_token %}
+    
+    <input type="submmit" class="btn btn-danger" value="Delete">     
+    
+    </form>
+
+    </td>   
+    
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>>
+    
+   {% else %}
+
+   <h4 class="text-center alert alert-warning"> No Records </h4>
+
+   {% endif %}
+
+ </div>
+
+</div>
 
 {% endblock content %}
 

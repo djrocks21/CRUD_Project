@@ -1,0 +1,66 @@
+
+
+<html>
+
+<head>
+
+<title> Show Books  </title>
+
+</head>
+
+<body>
+
+
+<h2> BOOKS  </h2> </body></hr>
+  
+    <!-- { % for i in all_books %}
+    {{ forloop.counter}} --- {{i.name}} --- Price:- {{i.price}} <br>
+    { % endfor %} -->
+
+
+    <table border="2"  > 
+
+        <tr>
+          <th>Book ID</th>
+          <th>Book Name</th>
+          <th>Book Price</th>
+          <th>Book Qty</th>
+          <th>Is Book Published</th>
+          <th>Action</th>
+
+        </tr>
+    </tr>
+
+        {% for b in all_books %}
+        <tr>
+            <td>{{b.id}}</td>
+            <td>{{b.name}}</td>
+            <td>{{b.price}}</td>
+            <td>{{b.qty}}</td>
+            
+            {% if b.is_published %}
+            <td>Yes</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
+            <td><a href="{% url 'delete' b.id %}"> Delete </a> &nbsp&nbsp&nbsp
+            <td><a href="{% url 'update' b.id %}"> Edit </a></td> &nbsp&nbsp
+
+
+        </tr>     
+        {% endfor %}
+
+    
+    </table>
+
+     <a href="/homepage/"> Home Page</a>
+
+
+
+</body>
+
+</html>
+
+
+
+

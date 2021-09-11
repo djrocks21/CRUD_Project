@@ -1,0 +1,49 @@
+
+
+<html>
+
+<head>
+
+<title> Home Page  </title>
+
+</head>
+
+<body>
+
+
+<h2> BOOK REGISTARTION    </h2> </body></hr>
+
+    
+    <form action="/homepage/" method="post">
+
+    {% csrf_token %}
+    Book Name:-  <input type="text" name="nm" value="{{single_book.name}}"><br><br>
+    Book Qty :- <input type="number" name="qty"  value="{{single_book.qty}}"><br><br>
+    Book Price:- <input type="number" name="price"  value="{{single_book.price}}"><br><br>
+    
+    {%  if single_book.is_published %}
+    Is Published:- Yes <input type="radio" name="ispub" value="Yes"> No <input type="radio" name="ispub" value="No"><br><br>
+    {% else %}
+    Is Published:- Yes <input type="radio" name="ispub" value="Yes"> No <input type="radio" name="ispub" value="No"><br><br>
+    {% endif %}
+
+    {% if single_book %}
+    <input type="submit" value="Update Book">
+    {% else %}
+    <input type="submit" value="Add Book">
+    {% endif %}
+
+
+</form>
+
+<a href="{% url 'showbook' %}"> Show Books</a>
+
+
+
+</body>
+
+</html>
+
+
+
+

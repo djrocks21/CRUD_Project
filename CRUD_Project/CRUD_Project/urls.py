@@ -21,7 +21,10 @@ from registration import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.add_and_show, name="add_and_show"),
+    path('delete/int:id/', views.delete_data, name="deletedata"),
+    path('int:id/', views.delete_data, name="deletedata"),
 
+    
 
 ]
 
