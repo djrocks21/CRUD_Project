@@ -1,4 +1,4 @@
-"""CRUD_Project URL Configuration
+"""custom_user URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,29 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from registration import views
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.add_and_show, name="add_and_show"),
-    path('delete/int:id/', views.delete_data, name="deletedata"),
-    path('int:id/', views.delete_data, name="deletedata"),
-
-    
-
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
